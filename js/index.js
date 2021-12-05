@@ -55,7 +55,7 @@ function weekDay() {
     var mytwo = Math.floor((5*YY/4));
     var mythree = Math.floor((26*(MM+1)/10));
     var myfour = Math.floor(myone + mytwo + mythree + DD);
-    var myfive = Math.floor(myfour % 7) - 1;
+    var myfive = Math.floor(myfour % 7);
     
 
     var newday_position = myfive;
