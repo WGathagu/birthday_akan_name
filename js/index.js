@@ -82,3 +82,18 @@ function validations() {
     }
 }
 
+//events
+const form = document.getElementsByClassName('form-group');
+form.addEventListener('submit', function(event){
+    event.preventDefault();
+    if(validations() && isFemale()){
+        alert("Submited successfully. Your Akan Name is " + your_akan_name);
+    }
+    else if(validations() && isMale()){
+        alert("Submited successfully. Your Akan Name is " + your_akan_name);
+    }
+    else {
+        alert("Please Try Again");
+    }
+})
+
