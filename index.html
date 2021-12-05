@@ -15,15 +15,43 @@
             <h2 class="display-5"><strong>Find out your Akan Name</strong></h2>
         </div>
         <div class="bg-light p-5 rounded-lg m-3">
-                <div class="display-5"> What Are Akan Names?</div>
-                <div class="lead">
-                    <p>Akan names come from a traditional naming system for people. A child’s name is determined by factors surrounding his or her birth. Akan names are derived from Ghanian culture. Frequently in Ghana, children are given their first name as a 'day name' which corresponds to the day in the week they were born and the child's gender.</p>
-                </div>
-                <div class="my-4">
-                    Find out your Akan Name by filling the form below.
-                </div>
+            <div class="display-5"> What Are Akan Names?</div>
+            <div class="lead">
+                <p>Akan names come from a traditional naming system for people. A child’s name is determined by factors
+                    surrounding his or her birth. Akan names are derived from Ghanian culture. Frequently in Ghana,
+                    children are given their first name as a 'day name' which corresponds to the day in the week they
+                    were born and the child's gender.</p>
             </div>
-        
+            <div class="my-4">
+                Find out your Akan Name by filling the form below.
+            </div>
+        </div>
+
+        <form class="row g-3 m-5 border">
+            <div class="col-md-4 mb-3">
+                <label for="day" class="form-label">Enter Day of Birth:</label>
+                <input type="number" class="form-control" id="day" placeholder="01 - 31">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="month" class="form-label">Enter Month of Birth:</label>
+                <input type="number" class="form-control" id="month" placeholder="01 - 12">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="year" class="form-label">Enter Year of Birth:</label>
+                <input type="number" class="form-control" id="year" placeholder="1998">
+            </div>
+            <div class="col-12 form-group form-check">
+                <input type="radio" class="form-check-input" id="male">
+                <label class="form-check-label" for="male">Male</label>
+            </div>
+            <div class="col-12 form-group form-check">
+                <input type="radio" class="form-check-input" id="female" >
+                <label class="form-check-label" for="female">Female</label>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
 
     </div>
 </body>
