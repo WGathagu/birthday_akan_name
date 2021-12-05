@@ -27,19 +27,20 @@ function validations() {
     }
     else{
         alert("Valid true");
+        weekDay();
         return true;
     }
 }
 
 //Check gender
 function isFemale(){
-    if(femalegender = true){
+    if(femalegender){
         return true;
     }
-    else if(malegender = true){
+    else if(malegender){
         return false;
     }
-    else if((femalegender = false) && (malegender = false)){
+    else if((!femalegender) && (!malegender)){
         alert("Select gender!");
     }
 }
@@ -50,14 +51,43 @@ function weekDay() {
     let MM = birth_month;
     let DD = birth_day;
 
-    week_day = ( ( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7;
-    console.log("week day "+week_day+CC+YY+MM+DD);
+    var day_position = (((CC/4) -2*CC-1) + ((5*YY/4)) + ((26*(MM+1)/10)) + DD) % 7;
+    var float_day = parseInt(day_position);
+     if( float_day = 1 ){
+        week_day = 'Sunday';
+    }
+    else if(parseInt(day_position) = 2 ){
+        week_day = 'Monday';
+    }
+    else if(parseInt(day_position) = 3 ){
+        week_day = 'Tuesday';
+    }
+    else if(parseInt(day_position) = 4 ){
+        week_day = 'Wednesday';
+    }
+    else if(parseInt(day_position) = 5 ){
+        week_day = 'Thursday';
+    }
+    else if(parseInt(day_position) = 6 ){
+        week_day = 'Friday';
+    }
+    else if(parseInt(day_position) = 7 ){
+        week_day = 'Saturday';
+    }
+    else{
+        week_day = 'Invalid Day';
+    }
+    
+    console.log("Dayposition "+float_day);
+    console.log("CC "+CC);
+    console.log("YY "+YY);
+    console.log("week day "+week_day);
 
     return week_day;
-}
+} 
 
 //get weekday using birthday entry
-week_day = weekDay();
+
 function maleNames() {
     if (week_day = 'Sunday'){
         your_akan_name = male_names[0]
