@@ -4493,6 +4493,7 @@ textarea.form-control-lg {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  width: 100%;
   word-wrap: break-word;
   background-image: url(../images/background1.jpg);
   background-clip: border-box;
