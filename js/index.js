@@ -1,12 +1,6 @@
 //get form details
 var birth_day, birth_month, birth_year, week_day, male_names, female_names, your_akan_name, femalegender, malegender;
 
-//list of valid months
-const valid_months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
-
-//list of valid days
-const valid_days = valid_months.concat(['13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']);
-
 //list Male names
 male_names = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
 
@@ -16,17 +10,20 @@ female_names = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
 
 //validations
 function validations() {
-    
-    if (!valid_days.includes(birth_day)) {
-        alert("Day of Birth must be valid" +birth_day);
+
+    if (birth_day < 1 || birth_day > 31) {
+        alert("Day of Birth must be valid" + birth_day);
         return false;
     }
-    else if (!valid_months.includes(birth_month)) {
+    else if (birth_month < 1 || birth_month > 12) {
         alert("Month of Birth must be valid");
         return false;
     }
-    else{
-        alert("Valid true");
+    else if (birth_year.length < 4 || birth_year.length > 4) {
+        alert("Invalid Year");
+        return false;
+    }
+    else {
         weekDay();
         return true;
     }
@@ -52,26 +49,28 @@ function weekDay() {
     let DD = birth_day;
 
     var day_position = (((CC/4) -2*CC-1) + ((5*YY/4)) + ((26*(MM+1)/10)) + DD) % 7;
+
     var float_day = parseInt(day_position);
-     if( float_day = 1 ){
+    //assign day position to weekday
+    if( float_day = 0 ){
         week_day = 'Sunday';
     }
-    else if(parseInt(day_position) = 2 ){
+    else if(float_day = 1 ){
         week_day = 'Monday';
     }
-    else if(parseInt(day_position) = 3 ){
+    else if(float_day = 2 ){
         week_day = 'Tuesday';
     }
-    else if(parseInt(day_position) = 4 ){
+    else if(float_day = 3 ){
         week_day = 'Wednesday';
     }
-    else if(parseInt(day_position) = 5 ){
+    else if(float_day = 4 ){
         week_day = 'Thursday';
     }
-    else if(parseInt(day_position) = 6 ){
+    else if(float_day = 5 ){
         week_day = 'Friday';
     }
-    else if(parseInt(day_position) = 7 ){
+    else if(float_day = 6 ){
         week_day = 'Saturday';
     }
     else{
@@ -81,6 +80,9 @@ function weekDay() {
     console.log("Dayposition "+float_day);
     console.log("CC "+CC);
     console.log("YY "+YY);
+    console.log("MM "+MM);
+    console.log("DD "+DD);
+    console.log("week day "+day_position);
     console.log("week day "+week_day);
 
     return week_day;
@@ -143,13 +145,13 @@ function femaleNames() {
 
 function findings(){
     if(validations() && isFemale()){
-        alert("Submited successfully. Your Akan Name is " + femaleNames());
+        alert("Submitted successfully. Your Akan Name is " + femaleNames());
     }
     else if(validations() && !isFemale()){
-        alert("Submited successfully. Your Akan Name is " + maleNames());
+        alert("Submitted successfully. Your Akan Name is " + maleNames());
     }
     else {
-        alert("Please Try Again");
+        alert("Could not perform the calculation. Please Try Again");
     }
     
 }
@@ -160,13 +162,10 @@ const form = document.querySelector("#myform");
 form.addEventListener("submit", function (event) {
     //get entries
     birth_day = document.getElementById('day').value;
-    alert(birth_day);
     birth_month = document.getElementById('month').value;
     birth_year = document.getElementById('year').value;
     femalegender = document.getElementById("female").checked
-    alert(femalegender);
     malegender = document.getElementById("male").checked
-    alert(malegender);
 
     findings();
 }, false); 
