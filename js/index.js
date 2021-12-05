@@ -34,8 +34,8 @@ function maleNames() {
 }
 
 //list Female names
-female_names = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"]
-function maleNames() {
+female_names = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"]
+function femaleNames() {
     if (week_day = 'Sunday'){
         your_akan_name = female_names[0]
     }
