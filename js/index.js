@@ -82,6 +82,19 @@ function validations() {
     }
 }
 
+//Check gender
+function isFemale(){
+    if(document.getElementById("female").checked = true){
+        return true;
+    }
+    else if(document.getElementById("male").checked = true){
+        return false;
+    }
+    else if((document.getElementById("male").checked = false) && (document.getElementById("male").checked = false)){
+        alert("select gender");
+    }
+}
+
 //events
 const form = document.getElementsByClassName('form-group');
 form.addEventListener('submit', function(event){
@@ -89,7 +102,7 @@ form.addEventListener('submit', function(event){
     if(validations() && isFemale()){
         alert("Submited successfully. Your Akan Name is " + your_akan_name);
     }
-    else if(validations() && isMale()){
+    else if(validations() && !isFemale()){
         alert("Submited successfully. Your Akan Name is " + your_akan_name);
     }
     else {
