@@ -3,10 +3,9 @@
 
 <head>
     <title>Birthday - Akan Name</title>
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"> -->
-    <script src="js/scripts.js"></script>
+    <script src="js/index.js"></script>
 </head>
 
 <body>
@@ -27,7 +26,7 @@
             </div>
         </div>
 
-        <form class="row g-3 m-5 border">
+        <form class="row g-3 m-4 border form-group">
             <div class="col-md-4 mb-3">
                 <label for="day" class="form-label">Enter Day of Birth:</label>
                 <input type="number" class="form-control" id="day" placeholder="01 - 31">
@@ -40,15 +39,15 @@
                 <label for="year" class="form-label">Enter Year of Birth:</label>
                 <input type="number" class="form-control" id="year" placeholder="1998">
             </div>
-            <div class="col-12 form-group form-check">
+            <div class="col-4 form-check m-4">
                 <input type="radio" class="form-check-input" id="male">
                 <label class="form-check-label" for="male">Male</label>
             </div>
-            <div class="col-12 form-group form-check">
+            <div class="col-4 form-check m-4">
                 <input type="radio" class="form-check-input" id="female" >
                 <label class="form-check-label" for="female">Female</label>
             </div>
-            <div class="col-12">
+            <div class="col-12 m-2 d-flex justify-content-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
