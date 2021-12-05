@@ -33,6 +33,32 @@ function maleNames() {
     }
 }
 
+//list Female names
+female_names = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"]
+function maleNames() {
+    if (week_day = 'Sunday'){
+        your_akan_name = female_names[0]
+    }
+    else if (week_day = 'Monday'){
+        your_akan_name = female_names[1]
+    }
+    else if (week_day = 'Tuesday'){
+        your_akan_name = female_names[2]
+    }
+    else if (week_day = 'Wednesday'){
+        your_akan_name = female_names[3]
+    }
+    else if (week_day = 'Thursday'){
+        your_akan_name = female_names[4]
+    }
+    else if (week_day = 'Friday'){
+        your_akan_name = female_names[5]
+    }
+    else if (week_day = 'Saturday'){
+        your_akan_name = female_names[6]
+    }
+}
+
 //validations
 function validations() {
     var submitOK = "true";
