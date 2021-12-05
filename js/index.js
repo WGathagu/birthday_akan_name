@@ -1,5 +1,5 @@
 //get form details
-var day_position, birth_day, birth_month, birth_year, week_day, male_names, female_names, your_akan_name, femalegender, malegender;
+var birth_day, birth_month, birth_year, week_day, male_names, female_names, your_akan_name, femalegender, malegender;
 
 //list Male names
 male_names = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
@@ -49,29 +49,37 @@ function weekDay() {
     var MM = birth_month;
     var DD = birth_day;
 
-    //var day_position = (( ( (CC/4) - 2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7).toFixed(0);
+    //var day_position = Math.floor(((birth_year.substring(0, 2))/4) -2*(birth_year.substring(0, 2))-1) + ((5*(birth_year.substring(2, 4))/4) ) + ((26*(birth_month+1)/10)) + birth_day) % 7);
+    //var day_position = ( ( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7;
+    var myone = Math.floor((CC/4) - 2*CC-1);
+    var mytwo = Math.floor((5*YY/4));
+    var mythree = Math.floor((26*(MM+1)/10));
+    var myfour = Math.floor(myone + mytwo + mythree + DD);
+    var myfive = Math.floor(myfour % 7) - 1;
+    
 
-    var newday_position = day_position;
+    var newday_position = myfive;
+    console.log(typeof myfive);
     //assign day position to weekday
-    if(newday_position = 0 ){
+    if(newday_position == 0 ){
         week_day = 'Sunday';
     }
-    else if(newday_position = 1 ){
+    else if(newday_position == 1 ){
         week_day = 'Monday';
     }
-    else if(newday_position = 2 ){
+    else if(newday_position == 2 ){
         week_day = 'Tuesday';
     }
-    else if(newday_position = 3 ){
+    else if(newday_position == 3 ){
         week_day = 'Wednesday';
     }
-    else if(newday_position = 4 ){
+    else if(newday_position == 4 ){
         week_day = 'Thursday';
     }
-    else if(newday_position = 5 ){
+    else if(newday_position == 5 ){
         week_day = 'Friday';
     }
-    else if(newday_position = 6 ){
+    else if(newday_position == 6 ){
         week_day = 'Saturday';
     }
     else{
@@ -83,11 +91,9 @@ function weekDay() {
     console.log("YY "+YY);
     console.log("MM "+MM);
     console.log("DD "+DD);
-    console.log("day "+day_position);
+    console.log("myfive "+myfive);
     console.log("newday "+newday_position);
     console.log("week day "+week_day);
-    console.log("week day --> ((("+CC+"/4) - 2*"+CC+"-1) + ((5*"+YY+"/4)) + ((26*("+MM+"+1)/10)) + "+DD+") % 7");
-    console.log("Calculate again --> "+( ( (CC/4) - 2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7);
 
     return week_day;
 } 
@@ -95,25 +101,25 @@ function weekDay() {
 //get weekday using birthday entry
 
 function maleNames() {
-    if (week_day = 'Sunday'){
+    if (week_day == 'Sunday'){
         your_akan_name = male_names[0]
     }
-    else if (week_day = 'Monday'){
+    else if (week_day == 'Monday'){
         your_akan_name = male_names[1]
     }
-    else if (week_day = 'Tuesday'){
+    else if (week_day == 'Tuesday'){
         your_akan_name = male_names[2]
     }
-    else if (week_day = 'Wednesday'){
+    else if (week_day == 'Wednesday'){
         your_akan_name = male_names[3]
     }
-    else if (week_day = 'Thursday'){
+    else if (week_day == 'Thursday'){
         your_akan_name = male_names[4]
     }
-    else if (week_day = 'Friday'){
+    else if (week_day == 'Friday'){
         your_akan_name = male_names[5]
     }
-    else if (week_day = 'Saturday'){
+    else if (week_day == 'Saturday'){
         your_akan_name = male_names[6]
     }
 
@@ -122,25 +128,25 @@ function maleNames() {
 
 
 function femaleNames() {
-    if (week_day = 'Sunday'){
+    if (week_day == 'Sunday'){
         your_akan_name = female_names[0]
     }
-    else if (week_day = 'Monday'){
+    else if (week_day == 'Monday'){
         your_akan_name = female_names[1]
     }
-    else if (week_day = 'Tuesday'){
+    else if (week_day == 'Tuesday'){
         your_akan_name = female_names[2]
     }
-    else if (week_day = 'Wednesday'){
+    else if (week_day == 'Wednesday'){
         your_akan_name = female_names[3]
     }
-    else if (week_day = 'Thursday'){
+    else if (week_day == 'Thursday'){
         your_akan_name = female_names[4]
     }
-    else if (week_day = 'Friday'){
+    else if (week_day == 'Friday'){
         your_akan_name = female_names[5]
     }
-    else if (week_day = 'Saturday'){
+    else if (week_day == 'Saturday'){
         your_akan_name = female_names[6]
     }
 
@@ -170,13 +176,6 @@ form.addEventListener("submit", function (event) {
     birth_year = document.getElementById('year').value;
     femalegender = document.getElementById("female").checked
     malegender = document.getElementById("male").checked
-
-    var CC = birth_year.substring(0, 2);
-    var YY = birth_year.substring(2, 4);
-    var MM = birth_month;
-    var DD = birth_day;
-
-    day_position = (( ( (CC/4) - 2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7).toFixed(0);
 
     findings();
 }, false); 
