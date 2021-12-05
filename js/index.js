@@ -8,7 +8,56 @@ const valid_months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '
 const valid_days = valid_months.concat(['13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']);
 
 //list Male names
-male_names = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"]
+male_names = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
+
+//list Female names
+female_names = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"];
+
+
+//validations
+function validations() {
+    
+    if (!valid_days.includes(birth_day)) {
+        alert("Day of Birth must be valid" +birth_day);
+        return false;
+    }
+    else if (!valid_months.includes(birth_month)) {
+        alert("Month of Birth must be valid");
+        return false;
+    }
+    else{
+        alert("Valid true");
+        return true;
+    }
+}
+
+//Check gender
+function isFemale(){
+    if(femalegender = true){
+        return true;
+    }
+    else if(malegender = true){
+        return false;
+    }
+    else if((femalegender = false) && (malegender = false)){
+        alert("Select gender!");
+    }
+}
+
+function weekDay() {
+    let CC = birth_year.substring(0, 2);
+    let YY = birth_year.substring(2, 4);
+    let MM = birth_month;
+    let DD = birth_day;
+
+    week_day = ( ( (CC/4) -2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7;
+    console.log("week day "+week_day+CC+YY+MM+DD);
+
+    return week_day;
+}
+
+//get weekday using birthday entry
+week_day = weekDay();
 function maleNames() {
     if (week_day = 'Sunday'){
         your_akan_name = male_names[0]
@@ -31,13 +80,11 @@ function maleNames() {
     else if (week_day = 'Saturday'){
         your_akan_name = male_names[6]
     }
+
+    return your_akan_name;
 }
 
-//get weekday using birthday entry
-week_day = 'Sunday';
 
-//list Female names
-female_names = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"]
 function femaleNames() {
     if (week_day = 'Sunday'){
         your_akan_name = female_names[0]
@@ -60,45 +107,16 @@ function femaleNames() {
     else if (week_day = 'Saturday'){
         your_akan_name = female_names[6]
     }
-}
 
-//validations
-function validations() {
-    
-    if (!valid_days.includes(birth_day)) {
-        alert("Day of Birth must be valid" +birth_day);
-        return false;
-    }
-
-    else if (!valid_months.includes(birth_month)) {
-        alert("Month of Birth must be valid");
-        return false;
-    }
-
-    else if (submitOK == "true") {
-        return true;
-    }
-}
-
-//Check gender
-function isFemale(){
-    if(femalegender = true){
-        return true;
-    }
-    else if(malegender = true){
-        return false;
-    }
-    else if((femalegender = false) && (malegender = false)){
-        alert("Select gender!");
-    }
+    return your_akan_name;
 }
 
 function findings(){
     if(validations() && isFemale()){
-        alert("Submited successfully. Your Akan Name is " + your_akan_name);
+        alert("Submited successfully. Your Akan Name is " + femaleNames());
     }
     else if(validations() && !isFemale()){
-        alert("Submited successfully. Your Akan Name is " + your_akan_name);
+        alert("Submited successfully. Your Akan Name is " + maleNames());
     }
     else {
         alert("Please Try Again");
