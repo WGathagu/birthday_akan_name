@@ -1,11 +1,11 @@
 //get form details
-var birth_day, birth_month, birth_year, week_day, male_names, female_names, your_akan_name;
+var birth_day, birth_month, birth_year, week_day, male_names, female_names, your_akan_name, femalegender, malegender;
 
 //list of valid months
- var valid_months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const valid_months = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 
 //list of valid days
- var valid_days = valid_months.push([13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]);
+const valid_days = valid_months.concat(['13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31']);
 
 //list Male names
 male_names = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"]
@@ -64,52 +64,40 @@ function femaleNames() {
 
 //validations
 function validations() {
-    var submitOK = "true";
-    //get entries
-    birth_day = document.getElementById('day');
-    birth_month = document.getElementById('month');
-    birth_year = document.getElementById('year');
-
+    
     if (!valid_days.includes(birth_day)) {
-        alert("Day of Birth must be valid");
-        submitOK = "false";
-    }
-
-    if (!valid_months.includes(birth_month)) {
-        alert("Month of Birth must be valid");
-        submitOK = "false";
-    }
-
-    if (submitOK == "false") {
+        alert("Day of Birth must be valid" +birth_day);
         return false;
+    }
+
+    else if (!valid_months.includes(birth_month)) {
+        alert("Month of Birth must be valid");
+        return false;
+    }
+
+    else if (submitOK == "true") {
+        return true;
     }
 }
 
 //Check gender
 function isFemale(){
-    if(document.getElementById("female").checked = true){
+    if(femalegender = true){
         return true;
     }
-    else if(document.getElementById("male").checked = true){
+    else if(malegender = true){
         return false;
     }
-    else if((document.getElementById("male").checked = false) && (document.getElementById("male").checked = false)){
-        alert("select gender!");
+    else if((femalegender = false) && (malegender = false)){
+        alert("Select gender!");
     }
 }
 
 function findings(){
-    /* if(validations() && isFemale()){
+    if(validations() && isFemale()){
         alert("Submited successfully. Your Akan Name is " + your_akan_name);
     }
     else if(validations() && !isFemale()){
-        alert("Submited successfully. Your Akan Name is " + your_akan_name);
-    }
-    else {
-        alert("Please Try Again");
-    } */
-
-    if(validations() && isFemale()){
         alert("Submited successfully. Your Akan Name is " + your_akan_name);
     }
     else {
@@ -119,11 +107,19 @@ function findings(){
 }
 
 //events
-const form = document.getElementsByClassName('form');
+const form = document.querySelector("#myform");
 
-form.addEventListener('submit', findings(), true);
-/* form.addEventListener('submit', function(event){
-    event.preventDefault();
+form.addEventListener("submit", function (event) {
+    //get entries
+    birth_day = document.getElementById('day').value;
+    alert(birth_day);
+    birth_month = document.getElementById('month').value;
+    birth_year = document.getElementById('year').value;
+    femalegender = document.getElementById("female").checked
+    alert(femalegender);
+    malegender = document.getElementById("male").checked
+    alert(malegender);
+
     findings();
-}, false); */
+}, false); 
 

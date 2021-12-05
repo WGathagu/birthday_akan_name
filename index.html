@@ -5,7 +5,7 @@
     <title>Birthday - Akan Name</title>
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"> -->
-    <script src="js/index.js"></script>
+    <script src="js/index.js" defer></script>
 </head>
 
 <body>
@@ -26,7 +26,8 @@
         <div class="d-flex justify-content-center">
             <h4>Find out your Akan Name by filling the form below.</h4>
         </div>
-        <form class="row g-3 m-4 border form">
+        
+        <form class="row g-3 m-4 border" id="myform">
             <div class="col-md-4 mb-3">
                 <label for="day" class="form-label">Enter Day of Birth:</label>
                 <input type="number" class="form-control" id="day" placeholder="01 - 31">
@@ -51,6 +52,21 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </form>
+
+        <!-- <form action="#" method="post" id="signup">
+                <h1>Sign Up</h1>
+                <div class="field">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your fullname" />
+                    <small></small>
+                </div>
+                <div class="field">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" placeholder="Enter your email address" />
+                    <small></small>
+                </div>
+                <button type="submit">Subscribe</button>
+            </form> -->
 
     </div>
 </body>
