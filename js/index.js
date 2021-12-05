@@ -1,5 +1,5 @@
 //get form details
-var birth_day, birth_month, birth_year, male_names, your_akan_name;
+var birth_day, birth_month, birth_year, week_day, male_names, female_names, your_akan_name;
 
 //list of valid months
  var valid_months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -8,11 +8,30 @@ var birth_day, birth_month, birth_year, male_names, your_akan_name;
  var valid_days = valid_months.push([13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]);
 
 //list Male names
-male_names = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku"]
+male_names = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"]
 function maleNames() {
     if (week_day = 'Sunday'){
-        your_name = male_names[0]
+        your_akan_name = male_names[0]
     }
+    else if (week_day = 'Monday'){
+        your_akan_name = male_names[1]
+    }
+    else if (week_day = 'Tuesday'){
+        your_akan_name = male_names[2]
+    }
+    else if (week_day = 'Wednesday'){
+        your_akan_name = male_names[3]
+    }
+    else if (week_day = 'Thursday'){
+        your_akan_name = male_names[4]
+    }
+    else if (week_day = 'Friday'){
+        your_akan_name = male_names[5]
+    }
+    else if (week_day = 'Saturday'){
+        your_akan_name = male_names[6]
+    }
+}
 
 //validations
 function validations() {
