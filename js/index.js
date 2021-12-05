@@ -1,5 +1,5 @@
 //get form details
-var birth_day, birth_month, birth_year, week_day, male_names, female_names, your_akan_name, femalegender, malegender;
+var day_position, birth_day, birth_month, birth_year, week_day, male_names, female_names, your_akan_name, femalegender, malegender;
 
 //list Male names
 male_names = ["Kwasi", "Kwadwo", "Kwabena", "Kwaku", "Yaw", "Kofi", "Kwame"];
@@ -49,9 +49,9 @@ function weekDay() {
     var MM = birth_month;
     var DD = birth_day;
 
-    let day_position = ( ( (CC/4) - 2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7;
+    //var day_position = (( ( (CC/4) - 2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7).toFixed(0);
 
-    var newday_position = day_position.toFixed(0);
+    var newday_position = day_position;
     //assign day position to weekday
     if(newday_position = 0 ){
         week_day = 'Sunday';
@@ -170,6 +170,13 @@ form.addEventListener("submit", function (event) {
     birth_year = document.getElementById('year').value;
     femalegender = document.getElementById("female").checked
     malegender = document.getElementById("male").checked
+
+    var CC = birth_year.substring(0, 2);
+    var YY = birth_year.substring(2, 4);
+    var MM = birth_month;
+    var DD = birth_day;
+
+    day_position = (( ( (CC/4) - 2*CC-1) + ((5*YY/4) ) + ((26*(MM+1)/10)) + DD ) % 7).toFixed(0);
 
     findings();
 }, false); 
