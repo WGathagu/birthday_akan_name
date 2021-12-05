@@ -33,6 +33,9 @@ function maleNames() {
     }
 }
 
+//get weekday using birthday entry
+week_day = 'Sunday';
+
 //list Female names
 female_names = ["Akosua", "Adwoa", "Abenaa", "Akua", "Yaa", "Afua", "Ama"]
 function femaleNames() {
@@ -63,16 +66,16 @@ function femaleNames() {
 function validations() {
     var submitOK = "true";
     //get entries
-    birth_day = document.getElementById('day').value;
-    birth_month = document.getElementById('month').value;
-    birth_year = document.getElementById('year').value;
+    birth_day = document.getElementById('day');
+    birth_month = document.getElementById('month');
+    birth_year = document.getElementById('year');
 
-    if (!valid_days.contains(birth_day)) {
+    if (!valid_days.includes(birth_day)) {
         alert("Day of Birth must be valid");
         submitOK = "false";
     }
 
-    if (!valid_months.contains(birth_month)) {
+    if (!valid_months.includes(birth_month)) {
         alert("Month of Birth must be valid");
         submitOK = "false";
     }
@@ -91,15 +94,12 @@ function isFemale(){
         return false;
     }
     else if((document.getElementById("male").checked = false) && (document.getElementById("male").checked = false)){
-        alert("select gender");
+        alert("select gender!");
     }
 }
 
-//events
-const form = document.getElementsByClassName('form-group');
-form.addEventListener('submit', function(event){
-    event.preventDefault();
-    if(validations() && isFemale()){
+function findings(){
+    /* if(validations() && isFemale()){
         alert("Submited successfully. Your Akan Name is " + your_akan_name);
     }
     else if(validations() && !isFemale()){
@@ -107,6 +107,23 @@ form.addEventListener('submit', function(event){
     }
     else {
         alert("Please Try Again");
+    } */
+
+    if(validations() && isFemale()){
+        alert("Submited successfully. Your Akan Name is " + your_akan_name);
     }
-})
+    else {
+        alert("Please Try Again");
+    }
+    
+}
+
+//events
+const form = document.getElementsByClassName('form');
+
+form.addEventListener('submit', findings(), true);
+/* form.addEventListener('submit', function(event){
+    event.preventDefault();
+    findings();
+}, false); */
 
