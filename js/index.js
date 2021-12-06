@@ -154,10 +154,11 @@ function femaleNames() {
 }
 
 function findings(){
-    if(validations() && selectedGender()){
+    var isOkay = validations();
+    if((isOkay == true) && selectedGender()){
         alert("Submitted successfully. Your Akan Name is " + femaleNames());
     }
-    else if(validations() && !selectedGender()){
+    else if((isOkay == true) && !selectedGender()){
         alert("Submitted successfully. Your Akan Name is " + maleNames());
     }
     else {
